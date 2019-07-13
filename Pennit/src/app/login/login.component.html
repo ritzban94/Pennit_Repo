@@ -1,0 +1,39 @@
+<div id="main" style="height:500px;background-image: url('assets/images/login_bg.png')">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 style="font-weight:bold;color: #008081; margin-top:15px;font-family: 'old_letterhead';">Pennit</h1>
+            <h4 style="font-family: 'freeday'">Log in</h4>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <form #loginform="ngForm" (ngSubmit)="onsubmit(loginform)">
+                    <label for="email" class="col-form-label"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" class="form-control" ngModel name="email" #email="ngModel" email required>
+                    <label for="password" class="col-form-label"><i class="fas fa-lock"></i> Password:</label>
+                    <input type="password" class="form-control" ngModel name="password" #password="ngModel" required>
+                    <div style="margin-top: 10px" class="text-center">
+                        <button type="submit" [disabled]="!loginform.valid" class="btn btn-submit btn-primary btn-block center-block">
+                            <span *ngIf="!this.servInsL.loading">Log In</span>
+                            <span *ngIf="this.servInsL.loading">
+                                <div class="spinner-border spinner-border-sm" style="margin-bottom: 1px"></div>
+                                Loading...
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div id="sec_div" class="col-md-12">
+            <span style="color:green" *ngIf="this.servInsL.loggedin"><i style="color:green" class="fas fa-check-circle"></i> Verified..</span>
+            <span style="color: red" *ngIf="this.servInsL.authfailed"><i style="color: red" class="fas fa-exclamation-circle"></i> Invalid..</span>
+        </div>
+    </div>
+    <hr>
+</div>
+</div>

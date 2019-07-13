@@ -1,0 +1,13 @@
+.form-control.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+textarea.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+label{
+    font-family: 'hollen';
+    font-size: 1em;
+}
+.btn_span{
+    font-family: 'Tahoma';
+}

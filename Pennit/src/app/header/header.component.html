@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg sticky-top" style="background-color: #4682B4">
+    <div class="navbar-header">
+        <a class="navbar-brand">
+            <img id="app_logo" src="assets/images/21-512.png" style="height: 35px; margin-bottom: 10px;"/>
+            <span id="app_name" style="color: whitesmoke; font-family: 'old_letterhead'; font-size: 30px; cursor: pointer;"> Pennit</span>
+        </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+     aria-label="Toggle navigation"
+     (click)="toggleCollapsed()">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+            </li>
+            <li class="nav-item" *ngIf="!this.servIns.loggedin">
+                <a class="nav-link" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Log in</a>
+            </li>
+            <li class="nav-item" *ngIf="this.servIns.loggedin">
+                <a class="nav-link" routerLink="/writeit" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Write it!</a>
+            </li>
+            <li class="nav-item" *ngIf="this.servIns.loggedin">
+                <a class="nav-link" routerLink="/stories" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Stories</a>
+            </li>
+            <li class="nav-item" *ngIf="this.servIns.loggedin">
+                <a class="nav-link" routerLink="/comments" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Comments</a>
+            </li>
+            <li class="nav-item" *ngIf="this.servIns.loggedin">
+                <button type="button" class="btn btn-default" style="background-color:lightskyblue; margin-top: 8px;" (click)="onlogoutclick()">
+                    <i class="fas fa-power-off"></i>
+                </button>
+            </li>
+        </ul>
+    </div>
+</nav>

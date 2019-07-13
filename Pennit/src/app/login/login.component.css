@@ -1,0 +1,15 @@
+h1, h4{
+    text-align: center;
+}
+span{
+    display: inline-block;
+}
+#sec_div{
+    text-align: center;
+}
+.container{
+    width: 35%;
+}
+.form-control.ng-invalid.ng-touched{
+    border: 1px solid red;
+}

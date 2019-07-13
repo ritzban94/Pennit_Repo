@@ -1,0 +1,14 @@
+#first_div, #second-div, #third_div, ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+p, span{
+    color: whitesmoke;
+}
+i{
+    cursor: pointer;
+    color:whitesmoke;
+    font-size: 1.35rem;
+}
+

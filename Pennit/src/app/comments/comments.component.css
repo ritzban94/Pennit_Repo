@@ -1,0 +1,29 @@
+button{
+    margin:5px;
+}
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+label{
+    font-family: 'hollen';
+    font-size: 1em;
+}
+.star{
+    color:rgb(194, 192, 192);
+}
+.filled.color1,.filled.color2,.filled.color3,.filled.color4,.filled.color5{
+    color: rgba(28, 50, 245, 0.74);
+}
+.form-control.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+.card_design_class{
+    margin: 10px;
+    width: 70%;
+    border: 1px solid grey;
+    border-radius: 25px;
+    margin-left:auto;
+    margin-right:auto;  
+    vertical-align:middle;
+    background-image: -webkit-linear-gradient(top right, rgb(95, 184, 125), whitesmoke)
+}

@@ -1,0 +1,47 @@
+
+@font-face {
+    font-family: old_letterhead;
+    src: url(assets/fonts/Old_Letterhand.otf) format("opentype");
+  }
+  @font-face {
+    font-family: architex;
+    src: url(assets/fonts/Architex.ttf) format("truetype");
+  }
+  @font-face {
+    font-family: james;
+    src: url(assets/fonts/JamesAlmacen.ttf) format("truetype");
+  }
+  @font-face {
+    font-family: feenc;
+    src: url(assets/fonts/FEENC.ttf) format("truetype");
+  }
+  @font-face {
+    font-family: sail;
+    src: url(assets/fonts/Stricken_Brush.otf) format("opentype");
+  }
+  @font-face {
+    font-family: freeday;
+    src: url(assets/fonts/Yellow_Ginger.ttf) format("truetype");
+  }
+  @font-face {
+    font-family: delicate;
+    src: url(assets/fonts/The_Delicate.ttf) format("truetype");
+  }
+  @font-face {
+    font-family: dephiana;
+    src: url(assets/fonts/Dephiana.ttf) format("truetype");
+  }
+  @font-face {
+    font-family: hollen;
+    src: url(assets/fonts/Thanmon.ttf) format("truetype");
+  }
+  @font-face {
+    font-family: lux;
+    src: url(assets/fonts/PlomPraeng.ttf) format("truetype");
+  }
+  @font-face {
+    font-family: jpoudre;
+    src: url(assets/fonts/JMH_Poudre.otf) format("opentype");
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,76 @@
+<div id="main" style="background-image: url('assets/images/write_bg.png')">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-xs-12" style="text-align: center;">
+            <h1 style="margin-top: 10px;font-family: 'delicate'; color:#4c516d">Tell us about your day!</h1>
+            <h4 style="color:rgb(83, 83, 83); font-family: 'dephiana';">Feel free and leave nothing out...</h4>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="form-group">
+                <form [formGroup]="data_form" (ngSubmit)="onformSubmit()">
+                    <div class="form-group" formGroupName="gen_data">
+                        <div class="form-group row">
+                            <div class="col-md-8 col-sm-8">
+                                <label class="col-form-label"><i class="fas fa-heading"></i> Title:</label>
+                                <input type="text" class="form-control" formControlName="title" placeholder="Enter title...">
+                                <p style="color: red" *ngIf="!data_form.get('gen_data.title').valid && data_form.get('gen_data.title').touched">
+                                    Title cannot be empty!
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <mat-form-field style="margin-top: 25px;">
+                                    <input matInput [matDatepicker]="picker" formControlName="date" placeholder="Choose a date..">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <label class="col-form-label"><i class="fas fa-file-alt"></i> Description:</label>
+                        <textarea class="form-control" rows="5" formControlName="story"
+                            placeholder="Enter description.."></textarea>
+                        <span style="color: red" *ngIf="!data_form.get('gen_data.story').valid && data_form.get('gen_data.story').touched">
+                            Description cannot be empty!
+                        </span>
+                    </div>
+                    <div formArrayName="photos">
+                        <button type="button" class="btn btn-default btn-light" style="margin-bottom: 15px;" (click)="addphotos()">
+                            <span class="btn_span">Add photos <i class="fas fa-plus"></i></span>
+                        </button>
+                        <div class="form-group" *ngFor="let item of data_form.get('photos').controls;let i = index">
+                            <div class="form-group row">
+                                <div class="col-md-8 col-sm-8">
+                                    <input type="text" class="form-control" [formControlName]="i"
+                                        placeholder="Enter image url..." #imageurl>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <button type="button" class="btn btn-light" style="border-radius: 50%" (click)="removeInput(i)">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <hr *ngIf="imageurl.value !== ''">
+                            <img *ngIf="imageurl.value !== ''" [src]="imageurl.value" alt="Image Preview">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="text-right">
+                        <button type="submit" style="margin-right: 10px;" [disabled]="!data_form.valid" class="btn btn-success btn-submit">
+                            <span class="btn_span" *ngIf="!this.servInsW.post_fetch">Add Entry <i class="fas fa-pen"></i></span>
+                            <span class="btn_span" *ngIf="this.servInsW.post_fetch">
+                                <div class="spinner-border spinner-border-sm" style="margin-bottom: 1px"></div>
+                                Posting...
+                            </span>
+                        </button>
+                        <button type="button" class="btn btn-default btn-warning" (click)="form_reset()">
+                            <span class="btn_span">Clear Entry <i class="fas fa-backspace"></i></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,43 @@
+<div class="container-fluid" style="background-image: url('assets/images/login_bg.png')">
+  <div class="row">
+    <div id="heading" class="col-lg-12 col-md-12 col-xs-12">
+        <h2 style="font-weight:bold;color: #008081; font-family: 'old_letterhead';">Pennit : </h2>
+        <h3 style="font-family: 'sail';color: #1034a6;"> A digital diary.</h3> 
+    </div>
+    <div class="col-lg-12 col-md-12 col-xs-12">
+      <div class="card-body">
+        <ngb-carousel>
+          <ng-template ngbSlide *ngFor="let item of imageUrlArray">
+            <img [src]="item.url" alt="">
+            <div class="carousel-caption">
+              <h3 style="font-family:'james';font-weight:bold;color: #008ecc;">{{item.caption}}</h3>
+              <p style="font-family:'james';font-weight:bold;color: #1034a6;">{{item.desc}}</p>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </div>
+    </div>
+  </div>
+  <hr class="hr1">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-xs-12">
+      <h2 style="font-weight:bold;color: #008ecc;text-align: center; font-family: 'old_letterhead';">Pennit is...</h2>
+    </div>
+    <div class="col-lg-6 col-md-6 col-xs-6">
+      <p style="font-family: 'sail';color: #1034a6;">You probably don’t have many places you can write honestly about things that matter the most to you. You talk to friends and family, think about things quietly to yourself, but rarely do you get these thoughts onto paper. Everyone needs a safe space to discuss how they feel, without worrying about other people’s opinions. Think of a diary as safe haven for this.</p>
+    </div>
+    <div class="col-lg-6 col-md-6 col-xs-6">
+      <p style="font-family: 'sail';color: #1034a6;">Pennit is a place, a web application where you record events, experiences and other personal things that interest you. You can write about whatever you like, free of outside judgment or criticism. It should be an extension of your mind: safe and free. Pennit can be whatever you decide and should be a place where you can be honest.</p>
+    </div>
+  </div>
+  <hr class="hr1">
+  <div id="last_div" class="row">
+    <div id="button_div" class="col-lg-12 col-md-12 col-xs-12">
+      <button type="button" class="btn btn-primary btn-lg" [disabled]="this.servInsE.loggedin" (click)="carry()">Get started
+        <i class="fas fa-angle-double-right"></i>
+      </button>
+    </div>
+    <p style="font-family: 'sail';color: #1034a6;text-align: center;">Take the first step. Log in..</p>
+  </div>
+</div>
+

@@ -1,0 +1,22 @@
+img{
+    width: 100%;
+    height: 490px;
+}
+.hr1{
+    border: 1.5px solid gray;
+}
+#button_div, #last_div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#heading{
+    padding-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-body{
+    border: 2px dashed #008081;
+    border-radius: 2px;
+}

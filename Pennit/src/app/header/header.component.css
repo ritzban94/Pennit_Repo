@@ -1,0 +1,21 @@
+li > a:hover, .active{
+    border-bottom: 2px solid white;
+}
+.nav-item{
+    border: 2px;
+    padding: 1px 10px 1px 10px;
+}
+.nav-link{
+    color: white;
+    font-family: 'architex';
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.navbar{
+    padding-top: 0.5rem;
+    padding-right: inherit;
+    padding-bottom: 0%;
+    border-bottom: 0%;
+}
+

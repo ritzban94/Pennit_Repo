@@ -1,0 +1,78 @@
+<div id="main" style="background-image:-webkit-radial-gradient(rgb(17, 124, 167), rgb(185, 255, 246))">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-xs-12" style="text-align: center;">
+            <h1 style="margin-top: 10px;font-family: 'jpoudre'; color:#4c516d">Your stories..</h1>
+            <div>
+                <mat-form-field>
+                    <mat-select [(value)]="selected">
+                        <mat-option value="search_title">Search by title..</mat-option>
+                        <mat-option value="search_date">Search by date..</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field *ngIf="selected == 'search_title'">
+                    <input matInput placeholder="Enter title.." [(ngModel)]="search_query_title" (focusout)="focusout_title()">
+                </mat-form-field>
+                <mat-form-field *ngIf="selected == 'search_date'">
+                    <input matInput [matDatepicker]="picker" placeholder="Enter date.." [(ngModel)]="search_query_date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="text-center">
+                <span *ngIf="this.servInsS.post_fetch">
+                    <div class="spinner-border spinner-border-sm" style="margin-bottom: 1px"></div>
+                    Loading...
+                </span>
+                <span *ngIf="!this.servInsS.post_fetch && this.servInsS.posts_array.length == 0 && this.servInsS.error_msg == ''">
+                    There are no entries yet.
+                </span>
+                <span *ngIf="!this.servInsS.post_fetch && (this.servInsS.posts_array | filterpipe:search_query_title:search_query_date).length == 0 && this.servInsS.posts_array.length != 0 && this.servInsS.error_msg == ''">
+                    No such entries found.
+                </span>
+                <p class="alert alert-danger" *ngIf="this.servInsS.error_msg !== ''">
+                    Error : {{this.servInsS.error_msg}}
+                </p>
+            </div>
+            <div>
+                <mat-card class="card-class" *ngFor = "let post of this.servInsS.posts_array | filterpipe:search_query_title:search_query_date">
+                    <mat-card-header>
+                        <div mat-card-avatar class="header-image-class" style="background-image: url('assets/images/avatar_5.png');background-size: cover;"></div>
+                        <mat-card-title>
+                            <h4 style="font-family: 'jpoudre'">{{post.title}}</h4>
+                        </mat-card-title>
+                        <mat-card-subtitle>{{post.date | date}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image *ngIf="!(post.images == null)" [src]="post.images[0]" alt="Attached photo">
+                    <mat-card-content>
+                        <p style="font-family: 'Helvetica'">{{post.desc}}</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <div class="text-left">
+                            <button type="button" class="btn btn-default like_btn" [ngClass]="{'like_btn':post.like}" (click)="likepost(post)">
+                                <i class="fas fa-thumbs-up"></i>
+                            </button>
+                            <button *ngIf="!(post.images == null) && post.images.length > 1" type="button" class="btn btn-default" (click)="viewImages(post.images)">
+                                {{post.images.length-1}}
+                                <i class="far fa-images"></i>
+                            </button>
+                            <button type="button" class="btn btn-default" (click)="editPost(post)">
+                                <i class="fas fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn btn-default" (click)="clickdelete(post.id)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>
+</div>
