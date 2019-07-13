@@ -30,7 +30,7 @@
                     Loading...
                 </span>
                 <span *ngIf="!this.servInsS.post_fetch && this.servInsS.posts_array.length == 0 && this.servInsS.error_msg == ''">
-                    There are no entries yet.
+                    There are no posts yet.
                 </span>
                 <span *ngIf="!this.servInsS.post_fetch && (this.servInsS.posts_array | filterpipe:search_query_title:search_query_date).length == 0 && this.servInsS.posts_array.length != 0 && this.servInsS.error_msg == ''">
                     No such entries found.
