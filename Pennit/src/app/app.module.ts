@@ -33,6 +33,7 @@ import { PhotosComponent } from './stories/photos/photos.component';
 import { FilterPipe } from './filer.pipe';
 import { CommentsComponent } from './comments/comments.component';
 import { SecondloginGuard } from './secondlogin.guard';
+import { RandomavatarDirective } from './randomavatar.directive';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { SecondloginGuard } from './secondlogin.guard';
     EditComponent,
     PhotosComponent,
     FilterPipe,
-    CommentsComponent
+    CommentsComponent,
+    RandomavatarDirective
   ],
   imports: [
     BrowserModule,

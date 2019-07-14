@@ -42,7 +42,7 @@
             <div>
                 <mat-card class="card-class" *ngFor = "let post of this.servInsS.posts_array | filterpipe:search_query_title:search_query_date">
                     <mat-card-header>
-                        <div mat-card-avatar class="header-image-class" style="background-image: url('assets/images/avatar_5.png');background-size: cover;"></div>
+                        <div mat-card-avatar randomavatar class="header-image-class" style="background-size: cover;"></div>
                         <mat-card-title>
                             <h4 style="font-family: 'jpoudre'">{{post.title}}</h4>
                         </mat-card-title>
