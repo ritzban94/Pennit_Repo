@@ -43,5 +43,9 @@
     font-family: jpoudre;
     src: url(assets/fonts/JMH_Poudre.otf) format("opentype");
   }
+  @font-face {
+    font-family: valeriana;
+    src: url(assets/fonts/Valeriana_Demo.otf) format("opentype");
+  }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

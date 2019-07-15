@@ -12,6 +12,14 @@ import { HandleService } from '../handle.service';
 })
 export class CommentsComponent implements OnInit {
 
+  avatars:string[] = [
+    "assets/images/avatar_1.png",
+    "assets/images/avatar_2.png",
+    "assets/images/avatar_3.png",
+    "assets/images/avatar_4.png",
+    "assets/images/avatar_5.png",
+    "assets/images/avatar_3.png"
+  ];
   constructor(private config:NgbRatingConfig, private servInsC:HandleService) {
   }
 
@@ -32,4 +40,5 @@ export class CommentsComponent implements OnInit {
     this.servInsC.postComment(comment_Ins);
     this.resetform(commentform);
   }
+
 }

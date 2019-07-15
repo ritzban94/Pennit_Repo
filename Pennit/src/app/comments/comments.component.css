@@ -8,6 +8,10 @@ label{
     font-family: 'hollen';
     font-size: 1em;
 }
+h5{
+    margin: 3px;
+    font-family: 'freeday';
+}
 .star{
     color:rgb(194, 192, 192);
 }
@@ -17,13 +21,14 @@ label{
 .form-control.ng-invalid.ng-touched{
     border: 1px solid red;
 }
-.card_design_class{
-    margin: 10px;
-    width: 70%;
-    border: 1px solid grey;
-    border-radius: 25px;
+#comment_list_item{
+    margin: 5px;
+    width: 80%;
+    border-radius: 10px;
     margin-left:auto;
     margin-right:auto;  
     vertical-align:middle;
-    background-image: -webkit-linear-gradient(top right, rgb(95, 184, 125), whitesmoke)
+}
+#id_comment{
+    font-family: 'valeriana'
 }
