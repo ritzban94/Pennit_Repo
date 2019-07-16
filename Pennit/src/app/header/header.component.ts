@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HandleService } from '../handle.service';
-import { Router } from '@angular/router';
+import { AuthService } from '../login/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   collapsed = true;
-  constructor(private servIns: HandleService) { }
+  constructor(private authservIns: AuthService) { }
 
   ngOnInit() {
   }
@@ -19,7 +18,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onlogoutclick(){
-    this.servIns.logout();
+    this.authservIns.logout();
   }
 
 }

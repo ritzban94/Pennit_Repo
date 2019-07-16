@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { imageDesc } from './imageDesc';
 import { Router } from '@angular/router';
-import { HandleService } from '../handle.service';
+import { AuthService } from '../login/auth.service';
 
 @Component({
   selector: 'app-entries',
@@ -13,7 +13,7 @@ import { HandleService } from '../handle.service';
 export class EntriesComponent implements OnInit {
 
   imageUrlArray: imageDesc[] = [];
-  constructor(config: NgbCarouselConfig, private router: Router, private servInsE:HandleService) {
+  constructor(config: NgbCarouselConfig, private router: Router, private authservInsE: AuthService) {
     config.interval = 3500;
     config.wrap = true;
     config.keyboard = false;

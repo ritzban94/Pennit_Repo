@@ -15,19 +15,19 @@
             <li class="nav-item">
                 <a class="nav-link" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
             </li>
-            <li class="nav-item" *ngIf="!this.servIns.loggedin">
+            <li class="nav-item" *ngIf="!this.authservIns.loggedin">
                 <a class="nav-link" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Log in</a>
             </li>
-            <li class="nav-item" *ngIf="this.servIns.loggedin">
+            <li class="nav-item" *ngIf="this.authservIns.loggedin">
                 <a class="nav-link" routerLink="/writeit" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Write it!</a>
             </li>
-            <li class="nav-item" *ngIf="this.servIns.loggedin">
+            <li class="nav-item" *ngIf="this.authservIns.loggedin">
                 <a class="nav-link" routerLink="/stories" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Stories</a>
             </li>
-            <li class="nav-item" *ngIf="this.servIns.loggedin">
+            <li class="nav-item" *ngIf="this.authservIns.loggedin">
                 <a class="nav-link" routerLink="/comments" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Comments</a>
             </li>
-            <li class="nav-item" *ngIf="this.servIns.loggedin">
+            <li class="nav-item" *ngIf="this.authservIns.loggedin">
                 <button type="button" class="btn btn-default" style="background-color:lightskyblue; margin-top: 8px;" (click)="onlogoutclick()">
                     <i class="fas fa-power-off"></i>
                 </button>

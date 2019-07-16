@@ -9,6 +9,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card'; 
 import { AngularFireModule } from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
+import { AngularFireAuthModule } from "@angular/fire/auth";
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSnackBarModule} from '@angular/material/snack-bar'; 
@@ -32,7 +33,6 @@ import { EditComponent } from './stories/edit/edit.component';
 import { PhotosComponent } from './stories/photos/photos.component';
 import { FilterPipe } from './filer.pipe';
 import { CommentsComponent } from './comments/comments.component';
-import { SecondloginGuard } from './secondlogin.guard';
 import { RandomavatarDirective } from './randomavatar.directive';
 
 @NgModule({
@@ -67,12 +67,12 @@ import { RandomavatarDirective } from './randomavatar.directive';
     MatDialogModule,
     MatSnackBarModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [
     HandleService,
     AccessGuard,
-    SecondloginGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CustomInterceptorOne,
