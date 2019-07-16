@@ -21,32 +21,6 @@ export class HandleService {
   error_msg:string = '';
   constructor(private db:AngularFireDatabase, private router:Router, private http:HttpClient, private snackbar:MatSnackBar) { }
 
-  authenticate(email:string, password:string){
-    if(email==='ritzban94@xyz.com' && password==='angular567'){
-      this.loggedin = true;
-      this.authfailed = false;
-      this.loading = true;
-      setTimeout(
-        ()=>{
-          this.router.navigate(['/writeit']);
-          this.loading = false;
-        },2000
-      );
-    }
-    else{
-      this.loading = false;
-      this.loggedin = false;
-      this.authfailed = true;
-    }
-  }
-
-  logout(){
-    this.loggedin = false;
-    this.authfailed = false;
-    this.loading = false;
-    this.router.navigate(['/']);
-  }
-
   postData(data:PostData){
     this.post_fetch = true;
     setTimeout(

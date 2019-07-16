@@ -19,6 +19,7 @@ export class StoriesComponent implements OnInit{
   constructor(private servInsS: HandleService, private dialog:MatDialog, private snackbar: MatSnackBar) { }
 
   ngOnInit() {
+    this.servInsS.posts_array = [];
     this.selected = 'search_title';
     this.servInsS.fetch_data();
   }

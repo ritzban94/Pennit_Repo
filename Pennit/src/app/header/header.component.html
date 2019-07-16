@@ -28,9 +28,25 @@
                 <a class="nav-link" routerLink="/comments" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Comments</a>
             </li>
             <li class="nav-item" *ngIf="this.authservIns.loggedin">
-                <button type="button" class="btn btn-default" style="background-color:lightskyblue; margin-top: 8px;" (click)="onlogoutclick()">
-                    <i class="fas fa-power-off"></i>
-                </button>
+                <div class="dropdown">
+                    <button style="padding: 0%; margin-top: 7.5px;" class="btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img id="avatar_profile" src="assets/images/avatar_1.png" alt="">
+                        <span style="margin-top: 5px;" class="caret"></span>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <blockquote style="margin-left: 15px;">
+                            Hi {{this.authservIns.user_info.email.substring(0, this.authservIns.user_info.email.indexOf('@'))}},
+                        </blockquote>
+                        <button type="button" class="dropdown-item btn btn-default btn-light">
+                            Your Profile
+                            <i class="fas fa-user-circle"></i>
+                        </button>
+                        <button type="button" class="dropdown-item btn btn-default btn-light" (click)="onlogoutclick()">
+                            Log Out 
+                            <i class="fas fa-power-off"></i>
+                        </button>
+                    </div>
+                </div>
             </li>
         </ul>
     </div>

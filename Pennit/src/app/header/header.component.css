@@ -18,4 +18,20 @@ li > a:hover, .active{
     padding-bottom: 0%;
     border-bottom: 0%;
 }
+#avatar_profile{
+    position: relative;
+    height: 35px;
+    width: 35px;
+}
+@media screen and (max-width: 980px){
+    .dropdown-menu{
+        position: absolute;
+    }
+}
+@media screen and (min-width: 985px){
+    .dropdown-menu{
+        position: absolute;
+        left: -225%;
+    }
+}
 

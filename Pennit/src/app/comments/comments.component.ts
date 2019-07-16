@@ -18,12 +18,13 @@ export class CommentsComponent implements OnInit {
     "assets/images/avatar_3.png",
     "assets/images/avatar_4.png",
     "assets/images/avatar_5.png",
-    "assets/images/avatar_3.png"
+    "assets/images/avatar_1.png"
   ];
   constructor(private config:NgbRatingConfig, private servInsC:HandleService) {
   }
 
   ngOnInit() {
+    this.servInsC.comments_array = [];
     this.servInsC.fetch_comments();
   }
 

@@ -34,6 +34,7 @@ export class AuthService {
       console.log(response);
       this.loggedin = true;
       this.authfailed = false;
+      this.error_msg = null;
       setTimeout(
         () => {
           this.loading = false;
