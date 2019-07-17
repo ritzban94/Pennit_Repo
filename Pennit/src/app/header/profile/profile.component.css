@@ -1,0 +1,9 @@
+img{
+    width: 35%;
+    height: 35%;
+    margin-right: 15px;
+}
+.text-left{
+    position: relative; 
+    top: 10%;
+}
