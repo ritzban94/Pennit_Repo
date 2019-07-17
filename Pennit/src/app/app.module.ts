@@ -16,7 +16,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent, LogoutSnackbar } from './header/header.component';
 import { HandleService } from './handle.service';
 import { EntriesComponent } from './entries/entries.component';
 import { FooterComponent } from './footer/footer.component';
@@ -34,6 +34,7 @@ import { PhotosComponent } from './stories/photos/photos.component';
 import { FilterPipe } from './filer.pipe';
 import { CommentsComponent } from './comments/comments.component';
 import { RandomavatarDirective } from './randomavatar.directive';
+import { ProfileComponent } from './header/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,9 @@ import { RandomavatarDirective } from './randomavatar.directive';
     PhotosComponent,
     FilterPipe,
     CommentsComponent,
-    RandomavatarDirective
+    RandomavatarDirective,
+    ProfileComponent,
+    LogoutSnackbar
   ],
   imports: [
     BrowserModule,
@@ -85,6 +88,6 @@ import { RandomavatarDirective } from './randomavatar.directive';
     }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [EditComponent, PhotosComponent]
+  entryComponents: [EditComponent, PhotosComponent, ProfileComponent, LogoutSnackbar]
 })
 export class AppModule { }

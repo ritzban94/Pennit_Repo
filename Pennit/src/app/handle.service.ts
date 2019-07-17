@@ -17,10 +17,34 @@ export class HandleService {
   post_fetch_comment:boolean;
   postin_comment:boolean;
   posts_array = [];
+  posts_array_fp = [];
   comments_array = [];
-  error_msg:string = '';
-  constructor(private db:AngularFireDatabase, private router:Router, private http:HttpClient, private snackbar:MatSnackBar) { }
+  error_msg:string = null;
+  constructor(private db:AngularFireDatabase, private http:HttpClient, private snackbar:MatSnackBar) { }
 
+  fetch_data_profile(){
+    this.posts_array_fp = [];
+    this.http.get<{[key:string]: PostData}>('https://pennit-75a71.firebaseio.com/posts.json')
+    .pipe(map(response => {
+      for(const key in response){
+        if(response.hasOwnProperty(key))
+          this.posts_array_fp.push({...response[key], id: key});
+      }
+    }))
+    .subscribe(
+      data => {
+        console.log(this.posts_array_fp.length);
+        console.log(this.posts_array_fp);
+      },
+      error => {
+        this.error_msg = error.message;
+      },
+      () => {
+        this.error_msg = null;
+      }
+    )
+  }
+  
   postData(data:PostData){
     this.post_fetch = true;
     setTimeout(
@@ -58,6 +82,7 @@ export class HandleService {
 
   fetch_data(){
     this.post_fetch = true;
+    this.posts_array = [];
     this.http.get<{[key:string]: PostData}>('https://pennit-75a71.firebaseio.com/posts.json')
     .pipe(map(response => {
       for(const key in response){
@@ -76,6 +101,7 @@ export class HandleService {
       },
       () => {
         this.post_fetch = false;
+        this.error_msg = null;
       }
     )
   }
@@ -178,6 +204,7 @@ export class HandleService {
       },
       () => {
         this.post_fetch_comment = false;
+        this.error_msg = null;
       }
     )
   }

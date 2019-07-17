@@ -32,10 +32,10 @@
                 <span *ngIf="!this.servInsS.post_fetch && this.servInsS.posts_array.length == 0 && this.servInsS.error_msg == ''">
                     There are no entries yet.
                 </span>
-                <span *ngIf="!this.servInsS.post_fetch && (this.servInsS.posts_array | filterpipe:search_query_title:search_query_date).length == 0 && this.servInsS.posts_array.length != 0 && this.servInsS.error_msg == ''">
+                <span *ngIf="!this.servInsS.post_fetch && (this.servInsS.posts_array | filterpipe:search_query_title:search_query_date).length == 0 && this.servInsS.posts_array.length != 0 && this.servInsS.error_msg == null">
                     No such entries found.
                 </span>
-                <p class="alert alert-danger" *ngIf="this.servInsS.error_msg !== ''">
+                <p class="alert alert-danger" *ngIf="this.servInsS.error_msg !== null">
                     Error : {{this.servInsS.error_msg}}
                 </p>
             </div>

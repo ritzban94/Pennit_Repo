@@ -52,10 +52,10 @@
                     <div class="spinner-border spinner-border-sm" style="margin-bottom: 1px"></div>
                     Loading...
                 </span>
-                <span *ngIf="!this.servInsC.post_fetch_comment && this.servInsC.comments_array.length == 0 && this.servInsC.error_msg == ''">
+                <span *ngIf="!this.servInsC.post_fetch_comment && this.servInsC.comments_array.length == 0 && this.servInsC.error_msg == null">
                     There are no comments yet.
                 </span>
-                <p class="alert alert-danger" *ngIf="this.servInsC.error_msg !== ''">
+                <p class="alert alert-danger" *ngIf="this.servInsC.error_msg !== null">
                     Error : {{this.servInsS.error_msg}}
                 </p>
             </div>

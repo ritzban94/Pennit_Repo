@@ -37,7 +37,7 @@
                         <blockquote style="margin-left: 15px;">
                             Hi {{this.authservIns.user_info.email.substring(0, this.authservIns.user_info.email.indexOf('@'))}},
                         </blockquote>
-                        <button type="button" class="dropdown-item btn btn-default btn-light">
+                        <button type="button" class="dropdown-item btn btn-default btn-light" (click)="profileclick()">
                             Your Profile
                             <i class="fas fa-user-circle"></i>
                         </button>

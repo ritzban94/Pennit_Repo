@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Profile
+    <i class="fas fa-times" style="float: right; cursor: pointer;" (click)="closeDialog()"></i>
+</h2>
+<hr>
+<div mat-dialog-content>
+    <div *ngIf="this.loading" class="text-center">
+        <div class="spinner-border text-warning" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div *ngIf="!this.loading" class="d-inline-flex">
+        <img style="width: 35%;height: 35%;margin-right: 15px;" src="assets/images/avatar_1.png" alt="">
+        <div class="pull-right">
+            <div class="text-left" style="position: relative; top: 10%">
+                <h3>{{username}}</h3>
+                <p>Email: {{email_id}}</p>
+                <p>Posts: {{number_posts}}</p>
+                <p>Photos: {{number_photos}}</p>
+                <p>Liked posts: {{number_likes}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="text-center">
+    <span style="font-family: 'old_letterhead';">Pennit</span>
+</div>
