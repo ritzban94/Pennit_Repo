@@ -11,6 +11,13 @@
     margin-right:auto;  
     vertical-align:middle;
 }
+.card{
+    margin-bottom: 5px;
+    width : 80%;
+    margin-left:auto;
+    margin-right:auto;  
+    vertical-align:middle;
+}
 button{
     margin: 5px;
     color: whitesmoke;
@@ -28,6 +35,15 @@ mat-card-content{
 mat-form-field{
     margin: 10px;
 }
-img{
+#card-image{
     height: 335px;
+}
+#story_list_item{
+    background-color: rgb(66, 66, 66);
+    margin: 5px;
+    width: 80%;
+    border-radius: 10px;
+    margin-left:auto;
+    margin-right:auto;  
+    vertical-align:middle;
 }

@@ -30,6 +30,7 @@ export class WriteitComponent implements OnInit {
       this.data_form.get('gen_data.date').value,
       this.data_form.get('gen_data.story').value,
       this.data_form.get('photos').value,
+      false,
       false
     );
     console.log(post_instance);

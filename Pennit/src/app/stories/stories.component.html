@@ -18,6 +18,12 @@
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
+                <mat-form-field>
+                    <mat-select [(value)]="view">
+                      <mat-option value="card">Cards</mat-option>
+                      <mat-option value="list">List</mat-option>
+                    </mat-select>
+                </mat-form-field>
             </div>
         </div>
     </div>
@@ -39,7 +45,7 @@
                     Error : {{this.servInsS.error_msg}}
                 </p>
             </div>
-            <div>
+            <div *ngIf="this.view === 'card'">
                 <mat-card class="card-class" *ngFor = "let post of this.servInsS.posts_array | filterpipe:search_query_title:search_query_date">
                     <mat-card-header>
                         <div mat-card-avatar randomavatar class="header-image-class" style="background-size: cover;"></div>
@@ -48,7 +54,7 @@
                         </mat-card-title>
                         <mat-card-subtitle>{{post.date | date}}</mat-card-subtitle>
                     </mat-card-header>
-                    <img mat-card-image *ngIf="!(post.images == null)" [src]="post.images[0]" alt="Attached photo">
+                    <img id="card-image" mat-card-image *ngIf="!(post.images == null)" [src]="post.images[0]" alt="Attached photo">
                     <mat-card-content>
                         <p style="font-family: 'Helvetica'">{{post.desc}}</p>
                     </mat-card-content>
@@ -70,6 +76,49 @@
                         </div>
                     </mat-card-actions>
                 </mat-card>
+            </div>
+            <div *ngIf="this.view === 'list'">
+                <div class="list-group">
+                    <div *ngFor = "let post of this.servInsS.posts_array | filterpipe:search_query_title:search_query_date;let i=index;">
+                        <div id="story_list_item" class="list-group-item d-flex justify-content-between align-items-center">
+                            <div class="d-inline-flex pull-left">
+                                <div>
+                                    <img style="margin-right: 10px;height: 60px;width: 60px" [src]="avatars[i>6?2:i]" alt="">
+                                </div>
+                                <div>
+                                    <h5 style="color: whitesmoke;font-family: 'jpoudre'">{{post.title}}</h5>
+                                    <p style="color: whitesmoke;">{{post.date | date}}</p>
+                                </div>
+                            </div>
+                            <div class="pull-right">
+                                <button type="button" class="btn btn-default" (click)="show_desc(post)">
+                                    <i class="fas fa-chevron-circle-down"></i>
+                                </button>
+                                <button type="button" class="btn btn-default like_btn" [ngClass]="{'like_btn': post.like}" (click)="likepost(post)">
+                                    <i class="fas fa-thumbs-up"></i>
+                                </button>
+                                <button *ngIf="!(post.images == null)" type="button" class="btn btn-default" (click)="viewImages(post.images)">
+                                    {{post.images.length}}
+                                    <i class="far fa-images"></i>
+                                </button>
+                                <button type="button" class="btn btn-default" (click)="editPost(post)">
+                                    <i class="fas fa-pen"></i>
+                                </button>
+                                <button type="button" class="btn btn-default" (click)="clickdelete(post.id)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card" *ngIf="post.show_desc_list" [@inOutAnimation]>
+                            <div class="card-header">
+                                <h5>Story..</h5>
+                            </div>
+                            <div class="card-body">
+                                {{post.desc}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <hr>
         </div>
