@@ -11,6 +11,7 @@ import { HandleService } from '../handle.service';
 export class WriteitComponent implements OnInit {
 
   data_form:FormGroup;
+  mood:string;
   constructor(private servInsW: HandleService) { }
 
   ngOnInit() {
@@ -29,6 +30,7 @@ export class WriteitComponent implements OnInit {
       this.data_form.get('gen_data.title').value,
       this.data_form.get('gen_data.date').value,
       this.data_form.get('gen_data.story').value,
+      this.mood === 'nothing'? null : this.mood,
       this.data_form.get('photos').value,
       false,
       false
@@ -36,6 +38,7 @@ export class WriteitComponent implements OnInit {
     console.log(post_instance);
     this.servInsW.postData(post_instance);
     this.form_reset();
+    this.mood = null;
   }
 
   form_reset(){

@@ -35,6 +35,7 @@ import { FilterPipe } from './filer.pipe';
 import { CommentsComponent } from './comments/comments.component';
 import { RandomavatarDirective } from './randomavatar.directive';
 import { ProfileComponent } from './header/profile/profile.component';
+import { MoodavatarDirective } from './moodavatar.directive';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ProfileComponent } from './header/profile/profile.component';
     CommentsComponent,
     RandomavatarDirective,
     ProfileComponent,
-    LogoutSnackbar
+    LogoutSnackbar,
+    MoodavatarDirective
   ],
   imports: [
     BrowserModule,

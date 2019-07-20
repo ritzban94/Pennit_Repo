@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onlogoutclick(){
+    this.dialog.closeAll();
     this.matsnackbar.openFromComponent(LogoutSnackbar,{
       duration: 1700
     });

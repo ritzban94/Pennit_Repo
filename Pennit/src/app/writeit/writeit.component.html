@@ -13,15 +13,67 @@
                 <form [formGroup]="data_form" (ngSubmit)="onformSubmit()">
                     <div class="form-group" formGroupName="gen_data">
                         <div class="form-group row">
-                            <div class="col-md-8 col-sm-8">
+                            <div class="col-md-6 col-sm-6">
                                 <label class="col-form-label"><i class="fas fa-heading"></i> Title:</label>
                                 <input type="text" class="form-control" formControlName="title" placeholder="Enter title...">
                                 <p style="color: red" *ngIf="!data_form.get('gen_data.title').valid && data_form.get('gen_data.title').touched">
                                     Title cannot be empty!
                                 </p>
                             </div>
-                            <div class="col-md-4 col-sm-4">
+                            <div class="col-md-2 col-sm-2">
                                 <mat-form-field style="margin-top: 25px;">
+                                    <mat-label>Your mood</mat-label>
+                                    <mat-select [(value)]="mood">
+                                        <mat-option value="nothing">Not saying..</mat-option>
+                                        <mat-option value="assets/mood_emojis/happy.png">
+                                            <img src="assets/mood_emojis/emojis_small/happy.png">
+                                            Happy
+                                        </mat-option>
+                                        <mat-option value="assets/mood_emojis/hilarious.png">
+                                            <img src="assets/mood_emojis/emojis_small/hilarious.png">
+                                            Hilarious
+                                        </mat-option>
+                                        <mat-option value="assets/mood_emojis/surprised.png">
+                                            <img src="assets/mood_emojis/emojis_small/surprised.png">
+                                            Surprised
+                                        </mat-option>
+                                        <mat-option value="assets/mood_emojis/love.png">
+                                            <img src="assets/mood_emojis/emojis_small/in-love.png">
+                                            Love
+                                        </mat-option>
+                                        <mat-option value="assets/mood_emojis/evil.png">
+                                            <img src="assets/mood_emojis/emojis_small/smart.png">
+                                            Evil
+                                        </mat-option>
+                                        <mat-option value="assets/mood_emojis/bored.png">
+                                            <img src="assets/mood_emojis/emojis_small/vain.png">
+                                            Bored
+                                        </mat-option>
+                                        <mat-option value="assets/mood_emojis/sad.png">
+                                            <img src="assets/mood_emojis/emojis_small/sad.png">
+                                            Sad
+                                        </mat-option>
+                                        <mat-option value="assets/mood_emojis/angry.png">
+                                            <img src="assets/mood_emojis/emojis_small/angry.png">
+                                            Angry
+                                        </mat-option>
+                                        <mat-option value="assets/mood_emojis/depressed.png">
+                                            <img src="assets/mood_emojis/emojis_small/unhappy.png">
+                                            Depressed
+                                        </mat-option>
+                                        <mat-option value="assets/mood_emojis/frustrated.png">
+                                            <img src="assets/mood_emojis/emojis_small/crying.png">
+                                            Frustrated
+                                        </mat-option>
+                                        <mat-option value="assets/mood_emojis/sick.png">
+                                            <img src="assets/mood_emojis/emojis_small/sick.png">
+                                            Sick
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <mat-form-field style="margin-left: 10px;margin-top: 25px;">
                                     <input matInput [matDatepicker]="picker" formControlName="date" placeholder="Choose a date..">
                                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                     <mat-datepicker #picker></mat-datepicker>
