@@ -12,6 +12,7 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSnackBarModule} from '@angular/material/snack-bar'; 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -36,6 +37,7 @@ import { CommentsComponent } from './comments/comments.component';
 import { RandomavatarDirective } from './randomavatar.directive';
 import { ProfileComponent } from './header/profile/profile.component';
 import { MoodavatarDirective } from './moodavatar.directive';
+import { SecondloginGuard } from './secondlogin.guard';
 
 @NgModule({
   declarations: [
@@ -68,6 +70,7 @@ import { MoodavatarDirective } from './moodavatar.directive';
     MatFormFieldModule,
     MatCardModule,
     MatSelectModule,
+    MatCheckboxModule,
     HttpClientModule,
     MatDialogModule,
     MatSnackBarModule,
@@ -78,6 +81,7 @@ import { MoodavatarDirective } from './moodavatar.directive';
   providers: [
     HandleService,
     AccessGuard,
+    SecondloginGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CustomInterceptorOne,

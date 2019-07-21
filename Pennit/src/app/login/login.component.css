@@ -13,3 +13,6 @@ span{
 .form-control.ng-invalid.ng-touched{
     border: 1px solid red;
 }
+.checkbox_class{
+    margin: 10px;
+}

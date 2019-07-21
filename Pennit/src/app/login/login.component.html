@@ -3,12 +3,18 @@
     <div class="row">
         <div class="col-md-12">
             <h1 style="font-weight:bold;color: #008081; margin-top:15px;font-family: 'old_letterhead';">Pennit</h1>
-            <h4 style="font-family: 'freeday'">Log in</h4>
+            <h4 style="font-family: 'freeday'" *ngIf="!signup_mode">Log in</h4>
+            <h4 style="font-family: 'freeday'" *ngIf="signup_mode">Sign up</h4>
         </div>
     </div>
     <hr>
     <div class="row">
         <div class="col-md-12">
+            <div class="text-center">
+                <mat-checkbox class="checkbox_class" [disabled]="this.authservice.loading" [(ngModel)]="signup_mode">
+                    <span style="font-weight: 550">Sign up</span>
+                </mat-checkbox>
+            </div>
             <div class="form-group">
                 <form #loginform="ngForm" (ngSubmit)="onsubmit(loginform)">
                     <label for="email" class="col-form-label"><i class="fas fa-envelope"></i> Email:</label>
@@ -16,11 +22,18 @@
                     <label for="password" class="col-form-label"><i class="fas fa-lock"></i> Password:</label>
                     <input type="password" class="form-control" ngModel name="password" #password="ngModel" required>
                     <div style="margin-top: 10px" class="text-center">
-                        <button type="submit" [disabled]="!loginform.valid" class="btn btn-submit btn-primary btn-block center-block">
+                        <button *ngIf="!signup_mode" type="submit" [disabled]="!loginform.valid" class="btn btn-submit btn-primary btn-block center-block">
                             <span *ngIf="!this.authservice.loading">Log In</span>
                             <span *ngIf="this.authservice.loading">
                                 <div class="spinner-border spinner-border-sm" style="margin-bottom: 1px"></div>
                                 Loading...
+                            </span>
+                        </button>
+                        <button *ngIf="signup_mode" type="submit" [disabled]="!loginform.valid" class="btn btn-submit btn-primary btn-block center-block">
+                            <span *ngIf="!this.authservice.loading">Sign Up</span>
+                            <span *ngIf="this.authservice.loading">
+                                <div class="spinner-border spinner-border-sm" style="margin-bottom: 1px"></div>
+                                Signing Up...
                             </span>
                         </button>
                     </div>
@@ -29,9 +42,14 @@
         </div>
     </div>
     <div class="row">
-        <div id="sec_div" class="col-md-12">
+        <div *ngIf="!signup_mode" id="sec_div" class="col-md-12">
             <span style="color:green" *ngIf="this.authservice.loggedin"><i style="color:green" class="fas fa-check-circle"></i> Verified..</span>
             <span style="color: red" *ngIf="this.authservice.authfailed"><i style="color: red" class="fas fa-exclamation-circle"></i> Invalid..</span>
+            <p style="overflow: hidden" class="alert alert-danger" *ngIf="this.authservice.error_msg != null">{{this.authservice.error_msg}}</p>
+        </div>
+        <div *ngIf="signup_mode" id="sec_div" class="col-md-12">
+            <span style="color:green" *ngIf="this.authservice.signedup"><i style="color:green" class="fas fa-check-circle"></i> Sign up successful</span>
+            <span style="color: red" *ngIf="!this.authservice.signedup && this.authservice.error_msg != null"><i style="color: red" class="fas fa-exclamation-circle"></i> Error</span>
             <p style="overflow: hidden" class="alert alert-danger" *ngIf="this.authservice.error_msg != null">{{this.authservice.error_msg}}</p>
         </div>
     </div>

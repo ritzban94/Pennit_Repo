@@ -11,6 +11,7 @@ import { AuthService } from './auth.service';
 export class LoginComponent implements OnInit {
   email:string;
   password:string;
+  signup_mode:boolean;
   constructor(private authservice: AuthService,private servInsL: HandleService) { }
 
   ngOnInit() {
@@ -19,7 +20,10 @@ export class LoginComponent implements OnInit {
   onsubmit(loginform: NgForm){
     this.email = loginform.value.email;
     this.password = loginform.value.password;
-    this.authservice.authenticate_login(this.email,this.password);
+    if(!this.signup_mode)
+      this.authservice.authenticate_login(this.email,this.password);
+    else
+      this.authservice.signup(this.email,this.password);
   }
 
 }
