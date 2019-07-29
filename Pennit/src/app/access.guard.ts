@@ -5,7 +5,7 @@ import { AuthService } from './login/auth.service';
 
 @Injectable()
 export class AccessGuard implements CanActivate{
-  constructor(private authservInsG: AuthService, private router:Router) {}
+  constructor(public authservInsG: AuthService, public router:Router) {}
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     if(this.authservInsG.loggedin == true && this.authservInsG.authfailed == false)
       return true;

@@ -12,7 +12,7 @@ export class RandomavatarDirective implements OnInit{
     "assets/images/avatar_4.png",
     "assets/images/avatar_5.png"
   ];
-  constructor(private element: ElementRef, private renderer: Renderer2) {}
+  constructor(public element: ElementRef, public renderer: Renderer2) {}
 
   ngOnInit(){
     this.renderer.setStyle(this.element.nativeElement, 'background-image', 'url('+ this.avatars[Math.floor(Math.random()*5)] +')')

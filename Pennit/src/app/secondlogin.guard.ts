@@ -6,7 +6,7 @@ import { AuthService } from './login/auth.service';
 @Injectable()
 export class SecondloginGuard implements CanActivate {
   
-  constructor(private authServ: AuthService, private router:Router){}
+  constructor(public authServ: AuthService, public router:Router){}
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     if(this.authServ.autologin())
       return true;

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { PostData } from './data_class';
 import Swal from 'sweetalert2';
@@ -7,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { CommentData } from './comment_class';
 import { MatSnackBar } from '@angular/material';
+import { AuthService } from './login/auth.service';
 
 @Injectable()
 export class HandleService {
@@ -20,11 +20,11 @@ export class HandleService {
   posts_array_fp = [];
   comments_array = [];
   error_msg:string = null;
-  constructor(private db:AngularFireDatabase, private http:HttpClient, private snackbar:MatSnackBar) { }
+  constructor(public db:AngularFireDatabase, public http:HttpClient, public authservice:AuthService, public snackbar:MatSnackBar) { }
 
   fetch_data_profile(){
     this.posts_array_fp = [];
-    this.http.get<{[key:string]: PostData}>('https://pennit-75a71.firebaseio.com/posts.json')
+    this.http.get<{[key:string]: PostData}>('https://pennit-75a71.firebaseio.com/posts'+ this.authservice.user_info.uid +'.json')
     .pipe(map(response => {
       for(const key in response){
         if(response.hasOwnProperty(key))
@@ -50,7 +50,7 @@ export class HandleService {
     setTimeout(
       ()=>{
         this.http.post<PostData>(
-          'https://pennit-75a71.firebaseio.com/posts.json',
+          'https://pennit-75a71.firebaseio.com/posts'+ this.authservice.user_info.uid +'.json',
           data,
           {
             headers: new HttpHeaders({'Custom_header':'CH1'})
@@ -83,7 +83,7 @@ export class HandleService {
   fetch_data(){
     this.post_fetch = true;
     this.posts_array = [];
-    this.http.get<{[key:string]: PostData}>('https://pennit-75a71.firebaseio.com/posts.json')
+    this.http.get<{[key:string]: PostData}>('https://pennit-75a71.firebaseio.com/posts'+ this.authservice.user_info.uid +'.json')
     .pipe(map(response => {
       for(const key in response){
         if(response.hasOwnProperty(key))
@@ -119,7 +119,7 @@ export class HandleService {
     }).then((result) => {
       if (result.value) {
         //Implemented firebase database object instead of http delete as it was not working.
-        this.db.object('/posts/'+id).remove()    
+        this.db.object('/posts'+ this.authservice.user_info.uid +'/'+ id).remove()    
         .then(response => {
           console.log(response);
           Swal.fire({
@@ -146,14 +146,14 @@ export class HandleService {
   }
 
   update_post(id:string, title:string, desc:string): Promise<void>{
-    return this.db.object('/posts/'+id).update({
+    return this.db.object('/posts'+ this.authservice.user_info.uid +'/'+ id).update({
       'title': title,
       'desc': desc
     });
   }
 
   like_post(id:string): Promise<void>{
-    return this.db.object('/posts/'+id).update({
+    return this.db.object('/posts'+ this.authservice.user_info.uid +'/'+ id).update({
       'like': true
     });
   }

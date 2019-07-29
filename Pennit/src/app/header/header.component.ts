@@ -10,7 +10,8 @@ import { ProfileComponent } from './profile/profile.component';
 })
 export class HeaderComponent implements OnInit {
   collapsed = true;
-  constructor(private dialog:MatDialog, private authservIns: AuthService,private matsnackbar:MatSnackBar) { }
+  collapsed_dd = false;
+  constructor(public dialog:MatDialog, public authservIns: AuthService,public matsnackbar:MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -19,7 +20,13 @@ export class HeaderComponent implements OnInit {
     this.collapsed = !this.collapsed;
   }
 
+  toggle_dd(): void {
+    this.collapsed_dd = !this.collapsed_dd;
+  }
+
   onlogoutclick(){
+    this.toggle_dd();
+    this.toggleCollapsed();
     this.dialog.closeAll();
     this.matsnackbar.openFromComponent(LogoutSnackbar,{
       duration: 1700
@@ -27,6 +34,8 @@ export class HeaderComponent implements OnInit {
   }
 
   profileclick(){
+    this.toggle_dd();
+    this.toggleCollapsed();
     const config = new MatDialogConfig();
     config.width = "50%";
     config.disableClose = true;

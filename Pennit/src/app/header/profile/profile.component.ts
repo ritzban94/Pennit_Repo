@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   number_photos:number = 0;
   number_likes:number = 0;
   loading:boolean = false;
-  constructor(private authservice:AuthService, private servInsP:HandleService, private dialogRef:MatDialogRef<ProfileComponent>) {}
+  constructor(public authservice:AuthService, public servInsP:HandleService, public dialogRef:MatDialogRef<ProfileComponent>) {}
 
   ngOnInit() {
     this.loading = true;

@@ -3,7 +3,7 @@ import { PostData } from './data_class';
 import { AuthService } from './login/auth.service';
 
 export class CustomInterceptorOne implements HttpInterceptor{
-    constructor(private authIns: AuthService){}
+    constructor(public authIns: AuthService){}
     intercept(req: HttpRequest<PostData>, next: HttpHandler) {
         const modified_req = req.clone({
             headers: req.headers.append('Custom_header','CH2'),

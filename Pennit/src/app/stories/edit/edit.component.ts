@@ -11,9 +11,9 @@ import Swal from 'sweetalert2';
 })
 export class EditComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) private editpost,
-   private dialogRef: MatDialogRef<EditComponent>,
-    private servInsSE: HandleService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public editpost,
+   public dialogRef: MatDialogRef<EditComponent>,
+    public servInsSE: HandleService) { }
 
   ngOnInit() {
   }

@@ -13,7 +13,7 @@ import { AuthService } from '../login/auth.service';
 export class EntriesComponent implements OnInit {
 
   imageUrlArray: imageDesc[] = [];
-  constructor(config: NgbCarouselConfig, private router: Router, private authservInsE: AuthService) {
+  constructor(config: NgbCarouselConfig, public router: Router, public authservInsE: AuthService) {
     config.interval = 3500;
     config.wrap = true;
     config.keyboard = false;

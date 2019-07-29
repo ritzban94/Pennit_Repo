@@ -9,7 +9,7 @@
     </div>
     <hr>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 col-xs-12">
             <div class="text-center">
                 <mat-checkbox class="checkbox_class" [disabled]="this.authservice.loading" [(ngModel)]="signup_mode">
                     <span style="font-weight: 550">Sign up</span>
@@ -42,12 +42,12 @@
         </div>
     </div>
     <div class="row">
-        <div *ngIf="!signup_mode" id="sec_div" class="col-md-12">
+        <div *ngIf="!signup_mode" id="sec_div" class="col-md-12 col-xs-12">
             <span style="color:green" *ngIf="this.authservice.loggedin"><i style="color:green" class="fas fa-check-circle"></i> Verified..</span>
             <span style="color: red" *ngIf="this.authservice.authfailed"><i style="color: red" class="fas fa-exclamation-circle"></i> Invalid..</span>
             <p style="overflow: hidden" class="alert alert-danger" *ngIf="this.authservice.error_msg != null">{{this.authservice.error_msg}}</p>
         </div>
-        <div *ngIf="signup_mode" id="sec_div" class="col-md-12">
+        <div *ngIf="signup_mode" id="sec_div" class="col-md-12 col-xs-12">
             <span style="color:green" *ngIf="this.authservice.signedup"><i style="color:green" class="fas fa-check-circle"></i> Sign up successful</span>
             <span style="color: red" *ngIf="!this.authservice.signedup && this.authservice.error_msg != null"><i style="color: red" class="fas fa-exclamation-circle"></i> Error</span>
             <p style="overflow: hidden" class="alert alert-danger" *ngIf="this.authservice.error_msg != null">{{this.authservice.error_msg}}</p>

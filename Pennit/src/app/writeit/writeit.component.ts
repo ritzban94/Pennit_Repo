@@ -12,7 +12,7 @@ export class WriteitComponent implements OnInit {
 
   data_form:FormGroup;
   mood:string;
-  constructor(private servInsW: HandleService) { }
+  constructor(public servInsW: HandleService) { }
 
   ngOnInit() {
     this.data_form = new FormGroup({

@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   email:string;
   password:string;
   signup_mode:boolean;
-  constructor(private authservice: AuthService,private servInsL: HandleService) { }
+  constructor(public authservice: AuthService,public servInsL: HandleService) { }
 
   ngOnInit() {
   }

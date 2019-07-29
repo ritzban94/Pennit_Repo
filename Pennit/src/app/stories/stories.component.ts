@@ -46,7 +46,7 @@ export class StoriesComponent implements OnInit{
     "assets/images/avatar_5.png",
     "assets/images/avatar_1.png"
   ];
-  constructor(private servInsS: HandleService, private dialog:MatDialog, private snackbar: MatSnackBar) { }
+  constructor(public servInsS: HandleService, public dialog:MatDialog, public snackbar: MatSnackBar) { }
 
   ngOnInit() {
     this.selected = 'search_title';
@@ -63,7 +63,7 @@ export class StoriesComponent implements OnInit{
     this.servInsS.like_post(post.id)
     .then(
       result => {
-        this.snackbar.open("You liked this entry!!","Bookmark",{
+        this.snackbar.open("You liked this entry!!","Done",{
           duration: 1200,
         });
       }

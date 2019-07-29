@@ -8,8 +8,8 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material";
 })
 export class PhotosComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) private images:string[], 
-    private dialogRef: MatDialogRef<PhotosComponent>) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public images:string[], 
+    public dialogRef: MatDialogRef<PhotosComponent>) { }
 
   ngOnInit() {
   }

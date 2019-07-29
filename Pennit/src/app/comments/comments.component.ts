@@ -20,7 +20,7 @@ export class CommentsComponent implements OnInit {
     "assets/images/avatar_5.png",
     "assets/images/avatar_1.png"
   ];
-  constructor(private config:NgbRatingConfig, private servInsC:HandleService) {
+  constructor(public config:NgbRatingConfig, public servInsC:HandleService) {
   }
 
   ngOnInit() {

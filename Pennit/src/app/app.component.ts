@@ -8,7 +8,7 @@ import { AuthService } from './login/auth.service';
 })
 export class AppComponent implements OnInit{
   title = 'Pennit';
-  constructor(private authServ: AuthService){}
+  constructor(public authServ: AuthService){}
   
   ngOnInit(){
     this.authServ.autologin();
